@@ -1,0 +1,20 @@
+// Font.
+$font_primary: 'DM Sans', sans-serif;
+$font_secondary: 'DM Serif Text', serif;
+
+// Palette
+$gray: #646466;
+$gray_light: #e4e4e5;
+$blue: #0578ff;
+$blue_dark: #181b31;
+$blue_light: #f2f8ff;
+$orange: #f5a622;
+
+@import "imports/reset";
+@import "imports/general";
+@import "imports/aos";
+@import "imports/layout";
+@import "imports/header";
+@import "imports/content";
+@import "imports/footer";
+@import "imports/modal";

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="73px" height="68px" viewBox="0 0 73 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M54,11 C50.9433594,-8.5078125 33.4295023,2.08382122 24.7773437,13.984 C16.1251852,25.8841788 0.261187502,11 0.261187502,34.3346666 C0.261187502,57.6693331 19.3043172,36.2246094 36.6521586,55.3346666 C54,74.4447238 68.6757812,63.5 72.3378906,48 C76,32.5 57.0566406,30.5078125 54,11 Z" id="path-1"></path>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FAFCFF" offset="0%"></stop>
+            <stop stop-color="#F2F8FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#129FFE" offset="0%"></stop>
+            <stop stop-color="#0151CC" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon" transform="translate(0.000000, 2.000000)">
+            <g id="bgicon">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g id="Color/Blue" mask="url(#mask-2)" fill="url(#linearGradient-3)">
+                    <g transform="translate(0.000000, -12.000000)" id="Rectangle">
+                        <rect x="0" y="0" width="76" height="78"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="icon/home/desktop" transform="translate(11.000000, 0.000000)">
+                <g id="Group-11">
+                    <path d="M42,14 C42,21.732 35.732,28 28,28 C20.268,28 14,21.732 14,14 C14,6.268 20.268,0 28,0 C35.732,0 42,6.268 42,14 Z" id="Stroke-1" stroke="#F5A622" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M31.836,9.788 C31.412,8.516 30.212,7.6 28.8,7.6 L27.2,7.6 C25.434,7.6 24,9.032 24,10.8 C24,12.568 25.434,14 27.2,14 L28.8,14 C30.566,14 32,15.432 32,17.2 C32,18.968 30.566,20.4 28.8,20.4 L27.2,20.4 C25.748,20.4 24.522,19.432 24.13,18.106" id="Stroke-3" stroke="#0777FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <line x1="27.9166496" y1="21.0038053" x2="28.090961" y2="22.9961947" id="Stroke-7" stroke="#0777FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(28.001903, 21.956422) rotate(5.000000) translate(-28.001903, -21.956422) "></line>
+                    <line x1="27.9166496" y1="5.04357787" x2="28.090961" y2="7.03596727" id="Stroke-7" stroke="#0777FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(28.001903, 5.996195) rotate(5.000000) translate(-28.001903, -5.996195) "></line>
+                    <path d="M21.4882,46 L28.0002,46 C30.2082,46 32.0002,44.208 32.0002,42 C32.0002,39.792 30.2082,38 28.0002,38 L18.0002,38 C18.0002,38 12.0002,34 8.0002,34 C4.0002,34 0.0002,38 0.0002,38 L0.0002,56 L32.0002,56 L56.0002,42 C56.0002,39.146 53.0962,37.21 50.4602,38.308 L32.0002,46 L16.0002,46" id="Stroke-9" fill="url(#linearGradient-4)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

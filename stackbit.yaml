@@ -1,0 +1,526 @@
+stackbitVersion: ~0.2.0
+ssgName: custom
+buildCommand: npm run build
+publishDir: .next
+staticDir: static
+uploadDir: images
+dataDir: data
+pagesDir: content
+pageLayoutKey: layout
+models:
+  config:
+    type: data
+    file: config.json
+    label: Site Config
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: Site title
+        required: true
+      - type: string
+        name: meta_desc
+        label: Meta Description
+        description: The default description used for meta tags.
+      - type: image
+        name: meta_img_path
+        label: Meta Image
+        description: The default image used for meta tags.
+      - type: string
+        name: twitter_username
+        label: Twitter Username
+        description: Twitter username. Used for meta tags.
+  header:
+    type: data
+    file: header.json
+    label: Header Config
+    fields:
+      - type: image
+        name: logo_path
+        label: Logo
+        description: The logo image displayed in the header.
+      - type: boolean
+        name: has_nav
+        label: Enable Navigation Menu
+        description: Display the navigation menu bar in the header.
+        default: true
+      - type: list
+        name: menu_items
+        label: Menu Items
+        description: The items displayed in the header navigation menu.
+        items:
+          type: action
+  footer:
+    type: data
+    file: footer.json
+    label: Footer Config
+    fields:
+      - type: image
+        name: logo_path
+        label: Logo
+        description: The logo image displayed in the footer.
+      - type: boolean
+        name: has_nav
+        label: Enable Navigation Menu
+        description: Display the secondary navigation menu in the footer.
+        default: true
+      - type: list
+        name: menu_items
+        label: Menu Items
+        description: The items displayed in the secondary navigation menu.
+        items:
+          type: action
+      - type: boolean
+        name: has_social
+        label: Enable Social Links
+        description: Display social links in the footer.
+        default: true
+      - type: list
+        name: social_links
+        label: Social Links
+        items:
+          type: action
+      - type: markdown
+        name: text
+        label: Site Info
+        description: The copyright text displayed in the footer.
+  modal:
+    type: data
+    file: modal.json
+    label: Announcement
+    fields:
+      - type: boolean
+        name: has_modal
+        label: Enable Announcement Window
+        description: Display the dismissable announcement window.
+        default: true
+      - type: string
+        name: title
+        label: Title
+        description: The title of the announcement.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image displayed in the announcement window.
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content displayed in the announcement window.
+      - type: list
+        name: actions
+        label: Action Buttons
+        description: The action buttons displayed in the announcement window.
+        items:
+          type: action
+  page:
+    type: page
+    label: Page
+    template: page
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page
+        required: true
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the page.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta tags.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image displayed below the page title and in meta tags.
+  custom:
+    type: page
+    label: Custom Page
+    template: custom
+    hideContent: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta tags.
+      - type: image
+        name: img_path
+        label: Image
+        description: The image displayed in meta tags.
+      - type: list
+        name: sections
+        label: Sections
+        description: The sections of the page.
+        items:
+          type: reference
+          labelField: title
+          models:
+            - section_hero
+            - section_content
+            - section_features
+            - section_grid
+            - section_cta
+            - section_form
+  section:
+    type: object
+    label: Section
+    labelField: title
+    fields:
+      - type: string
+        name: id
+        label: Section ID
+        description: The ID that can be used to link to this section.
+      - type: string
+        name: component
+        label: Component
+        required: true
+        hidden: true
+      - type: enum
+        name: bg_color
+        label: Background Color
+        description: The background color of the section.
+        options:
+          - none
+          - light-blue
+        default: none
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section.
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section.
+  section_hero:
+    type: object
+    label: Hero Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: SectionHero
+      - type: image
+        name: img_path
+        label: Image
+        description: The image of the section.
+      - type: markdown
+        name: video_embed
+        label: Video
+        description: Video embed code or HTML video element. Displayed if no image added.
+      - type: enum
+        name: media_position
+        label: Image or Video Position
+        options:
+          - left
+          - right
+          - center
+        default: right
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+  section_content:
+    type: object
+    label: Content Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: SectionContent
+      - type: image
+        name: img_path
+        label: Image
+        description: The image of the section.
+      - type: markdown
+        name: video_embed
+        label: Video
+        description: Video embed code or HTML video element. Displayed if no image added.
+      - type: enum
+        name: media_position
+        label: Image or Video Position
+        options:
+          - left
+          - right
+          - center
+        default: right
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+  section_features:
+    type: object
+    label: Features Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: SectionFeatures
+      - type: list
+        name: features
+        label: Features
+        items:
+          type: object
+          label: Feature
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Title
+              description: The title of the feature.
+            - type: markdown
+              name: content
+              label: Content
+              description: The text content of the feature.
+            - type: image
+              name: img_path
+              label: Image
+              description: The image of the section.
+            - type: markdown
+              name: video_embed
+              label: Video
+              description: >-
+                Video embed code or HTML video element. Displayed if no image
+                added.
+            - type: enum
+              name: media_position
+              label: Image or Video Position
+              options:
+                - left
+                - right
+                - center
+              default: right
+            - type: list
+              name: actions
+              label: Action Buttons
+              items:
+                type: action
+  section_grid:
+    type: object
+    label: Grid Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: SectionGrid
+      - type: enum
+        name: columns
+        label: Grid Columns
+        options:
+          - two
+          - three
+          - four
+        default: two
+      - type: enum
+        name: item_style
+        label: Grid Item Style
+        options:
+          - boxed
+          - plain
+        default: boxed
+      - type: enum
+        name: hor_align
+        label: Align Item Content Horizontally
+        options:
+          - left
+          - center
+        default: left
+      - type: enum
+        name: vert_align
+        label: Align Item Content Vertically
+        options:
+          - top
+          - middle
+        default: top
+      - type: list
+        name: grid_items
+        label: Grid Items
+        items:
+          type: object
+          label: Grid Item
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Title
+              description: The title of the grid item.
+            - type: markdown
+              name: content
+              label: Content
+              description: The text content of the grid item.
+            - type: image
+              name: img_path
+              label: Image
+              description: The image displayed above the grid item title.
+            - type: list
+              name: actions
+              label: Action Buttons
+              items:
+                type: action
+  section_cta:
+    type: object
+    label: CTA Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: SectionCta
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section.
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: action
+      - type: enum
+        name: btn_position
+        label: Buttons Position
+        options:
+          - right
+          - center
+        default: right
+  section_form:
+    type: object
+    label: Form Section
+    extends:
+      - section
+    fields:
+      - name: component
+        default: SectionForm
+      - type: enum
+        name: form_style
+        label: Form Style
+        options:
+          - boxed
+          - plain
+        default: boxed
+      - type: string
+        name: form_action
+        label: Form Action
+        description: The value of the "action" attribute.
+      - type: list
+        name: form_fields
+        label: Form Fields
+        items:
+          type: reference
+          labelField: label
+          models:
+            - field_input
+            - field_select
+      - type: string
+        name: form_btn_label
+        label: Form Button Label
+        required: true
+        description: The text displayed inside the form button.
+  action:
+    type: object
+    label: Action
+    labelField: label
+    fields:
+      - type: string
+        name: label
+        label: Label
+        required: true
+        description: The text displayed inside the button.
+      - type: string
+        name: url
+        label: URL
+        required: true
+        description: The URL that the button points to.
+      - type: enum
+        name: type
+        label: Type
+        options:
+          - link
+          - primary
+          - secondary
+        default: link
+        required: true
+      - type: boolean
+        name: new_tab
+        label: Open in a new tab/window
+        default: false
+  form_field:
+    type: object
+    label: Field
+    labelField: label
+    fields:
+      - type: string
+        name: component
+        label: Component
+        required: true
+        hidden: true
+      - type: string
+        name: name
+        label: Name
+        description: >-
+          The value of the field "name" attribute. Keep this to letters and
+          underscores (_), no spaces.
+        required: true
+      - type: string
+        name: label
+        label: Label
+        description: The label that appears above the field.
+        required: true
+  field_input:
+    type: object
+    label: Input
+    extends:
+      - form_field
+    fields:
+      - name: component
+        default: FieldInput
+      - type: enum
+        name: input_type
+        label: Type
+        options:
+          - text
+          - textarea
+          - email
+          - url
+          - tel
+        default: text
+        required: true
+  field_select:
+    type: object
+    label: Select
+    extends:
+      - form_field
+    fields:
+      - name: component
+        default: FieldSelect
+      - type: boolean
+        name: is_multiple
+        label: Multiple options can be selected
+        default: false
+      - type: string
+        name: default_option
+        label: Default Option
+        description: The default select box option.
+      - type: list
+        name: options
+        label: Select box options
+        items:
+          type: object
+          labelField: label
+          fields:
+            - type: string
+              name: value
+              label: Value
+              description: The value to be submitted with the form.
+              required: true
+            - type: string
+              name: label
+              label: Label
+              description: The default select box option.
+              widget: url
+              required: true
